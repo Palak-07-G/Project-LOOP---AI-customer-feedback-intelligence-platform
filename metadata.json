@@ -1,0 +1,6 @@
+{
+  "name": "LOOP — AI Customer-Feedback Intelligence Platform",
+  "description": "Close the loop on customer feedback with automated AI classification, theme clustering, trend detection, semantic Ask LOOP RAG, and Voice-of-Customer reporting.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

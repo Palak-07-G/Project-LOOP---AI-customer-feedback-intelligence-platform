@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-paper: #F9F7F2;
+    --bg-paper-subtle: #F2EFE9;
+    --bg-paper-card: #FFFFFF;
+    --bg-editorial-contrast: #1A1A1A;
+    --text-primary: #1A1A1A;
+    --text-muted: #5C5850;
+    --border-ink: #1A1A1A;
+    --border-ink-subtle: rgba(26, 26, 26, 0.15);
+  }
+
+  body {
+    background-color: #F9F7F2;
+    color: #1A1A1A;
+    font-family: 'Newsreader', Georgia, serif;
+  }
+
+  h1, h2, h3, h4, .font-serif-header {
+    font-family: 'Newsreader', Georgia, serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+.font-editorial {
+  font-family: 'Cinzel', serif;
+}
+
+.font-display {
+  font-family: 'Instrument Serif', 'Newsreader', serif;
+}
+
+.font-meta {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.font-mono-code {
+  font-family: 'Space Mono', monospace;
+}
+
+/* Crisp Editorial Borders */
+.border-ink {
+  border-color: #1A1A1A;
+}
+
+.border-ink-subtle {
+  border-color: rgba(26, 26, 26, 0.15);
+}
+
+/* Custom Scrollbars for Editorial Aesthetics */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F2EFE9;
+}
+::-webkit-scrollbar-thumb {
+  background: #1A1A1A;
+}

@@ -1,0 +1,137 @@
+// Prisma schema for LOOP — AI Customer-Feedback Intelligence Platform
+// Compatible with PostgreSQL, Neon, Supabase, and SQLite
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum Role {
+  ADMIN
+  ANALYST
+  VIEWER
+}
+
+enum Sentiment {
+  POS
+  NEU
+  NEG
+}
+
+enum Status {
+  NEW
+  REVIEWED
+  ACTIONED
+}
+
+model Workspace {
+  id        String     @id @default(uuid())
+  name      String
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  users     User[]
+  feedback  Feedback[]
+  themes    Theme[]
+  reports   Report[]
+
+  @@map("workspaces")
+}
+
+model User {
+  id           String    @id @default(uuid())
+  name         String
+  email        String    @unique
+  passwordHash String
+  role         Role      @default(ANALYST)
+  workspaceId  String
+  workspace    Workspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  @@index([workspaceId])
+  @@map("users")
+}
+
+model Feedback {
+  id             String          @id @default(uuid())
+  content        String
+  channel        String
+  sourceRef      String?
+  customerLabel  String?
+  sentiment      Sentiment       @default(NEU)
+  sentimentScore Float           @default(0.0)
+  featureArea    String?
+  status         Status          @default(NEW)
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+  workspaceId    String
+  workspace      Workspace       @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  feedbackThemes FeedbackTheme[]
+  embedding      Embedding?
+
+  @@index([workspaceId])
+  @@index([workspaceId, createdAt])
+  @@index([workspaceId, sentiment])
+  @@index([workspaceId, status])
+  @@index([workspaceId, channel])
+  @@map("feedback")
+}
+
+model Theme {
+  id             String          @id @default(uuid())
+  name           String
+  description    String
+  color          String          @default("#6366f1")
+  workspaceId    String
+  workspace      Workspace       @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+  feedbackThemes FeedbackTheme[]
+
+  @@unique([workspaceId, name])
+  @@index([workspaceId])
+  @@map("themes")
+}
+
+model FeedbackTheme {
+  feedbackId String
+  themeId    String
+  confidence Float    @default(1.0)
+  feedback   Feedback @relation(fields: [feedbackId], references: [id], onDelete: Cascade)
+  theme      Theme    @relation(fields: [themeId], references: [id], onDelete: Cascade)
+
+  @@id([feedbackId, themeId])
+  @@index([feedbackId])
+  @@index([themeId])
+  @@map("feedback_themes")
+}
+
+model Embedding {
+  id         String   @id @default(uuid())
+  feedbackId String   @unique
+  vector     String   // Serialized float array for cosine similarity matching
+  feedback   Feedback @relation(fields: [feedbackId], references: [id], onDelete: Cascade)
+  createdAt  DateTime @default(now())
+
+  @@map("embeddings")
+}
+
+model Report {
+  id          String    @id @default(uuid())
+  title       String
+  periodStart DateTime
+  periodEnd   DateTime
+  contentJson String    // Complete structured JSON payload
+  createdAt   DateTime  @default(now())
+  generatedBy String
+  workspaceId String
+  workspace   Workspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+
+  @@index([workspaceId])
+  @@index([workspaceId, createdAt])
+  @@map("reports")
+}
