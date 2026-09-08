@@ -8,7 +8,7 @@ import {
   ReportItem,
   MemberItem,
   FeedbackStatus,
-} from '../types';
+} from '../types.js';
 
 export class ApiError extends Error {
   code: string;

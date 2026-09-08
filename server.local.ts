@@ -2,14 +2,14 @@ import express from 'express';
 import cookieParser from 'cookie-parser';
 import path from 'path';
 import { createServer as createViteServer } from 'vite';
-import { initDatabase } from './server/db';
-import { authRouter } from './server/routes/auth';
-import { feedbackRouter } from './server/routes/feedback';
-import { themesRouter } from './server/routes/themes';
-import { analyticsRouter } from './server/routes/analytics';
-import { insightsRouter } from './server/routes/insights';
-import { reportsRouter } from './server/routes/reports';
-import { membersRouter } from './server/routes/members';
+import { initDatabase } from './server/db.js';
+import { authRouter } from './server/routes/auth.js';
+import { feedbackRouter } from './server/routes/feedback.js';
+import { themesRouter } from './server/routes/themes.js';
+import { analyticsRouter } from './server/routes/analytics.js';
+import { insightsRouter } from './server/routes/insights.js';
+import { reportsRouter } from './server/routes/reports.js';
+import { membersRouter } from './server/routes/members.js';
 
 async function startServer() {
   const app = express();

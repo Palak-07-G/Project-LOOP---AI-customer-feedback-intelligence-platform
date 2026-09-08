@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Modal } from '../ui/Modal';
-import { Button } from '../ui/Button';
-import { api } from '../../lib/api';
+import { Modal } from '../ui/Modal.js';
+import { Button } from '../ui/Button.js';
+import { api } from '../../lib/api.js';
 import { Sparkles, CheckCircle2 } from 'lucide-react';
-import { SentimentBadge } from '../ui/Badge';
+import { SentimentBadge } from '../ui/Badge.js';
 
 interface AddFeedbackModalProps {
   isOpen: boolean;

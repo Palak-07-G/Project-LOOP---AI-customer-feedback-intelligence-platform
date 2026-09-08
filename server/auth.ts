@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
-import { client } from './db';
+import { client } from './db.js';
 
 const JWT_SECRET = process.env.AUTH_SECRET || 'loop-jwt-secret-key-prod-super-secure-2026';
 

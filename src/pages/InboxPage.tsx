@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { FeedbackItem, FeedbackStatus, Theme } from '../types';
-import { api } from '../lib/api';
-import { useAuth } from '../context/AuthContext';
-import { Card } from '../components/ui/Card';
-import { Button } from '../components/ui/Button';
-import { SentimentBadge, StatusBadge, ChannelBadge } from '../components/ui/Badge';
-import { TableSkeleton } from '../components/ui/Skeleton';
-import { FeedbackDetailDrawer } from '../components/feedback/FeedbackDetailDrawer';
-import { AddFeedbackModal } from '../components/feedback/AddFeedbackModal';
-import { CSVImportModal } from '../components/feedback/CSVImportModal';
-import { SimulateChannelModal } from '../components/feedback/SimulateChannelModal';
+import { FeedbackItem, FeedbackStatus, Theme } from '../types.js';
+import { api } from '../lib/api.js';
+import { useAuth } from '../context/AuthContext.js';
+import { Card } from '../components/ui/Card.js';
+import { Button } from '../components/ui/Button.js';
+import { SentimentBadge, StatusBadge, ChannelBadge } from '../components/ui/Badge.js';
+import { TableSkeleton } from '../components/ui/Skeleton.js';
+import { FeedbackDetailDrawer } from '../components/feedback/FeedbackDetailDrawer.js';
+import { AddFeedbackModal } from '../components/feedback/AddFeedbackModal.js';
+import { CSVImportModal } from '../components/feedback/CSVImportModal.js';
+import { SimulateChannelModal } from '../components/feedback/SimulateChannelModal.js';
 import {
   Search,
   Filter,

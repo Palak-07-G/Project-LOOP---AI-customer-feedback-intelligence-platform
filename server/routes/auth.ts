@@ -1,8 +1,8 @@
 import { Router, Request, Response } from 'express';
 import bcrypt from 'bcryptjs';
 import { z } from 'zod';
-import { client } from '../db';
-import { signSessionToken, requireAuth, AuthSession } from '../auth';
+import { client } from '../db.js';
+import { signSessionToken, requireAuth, AuthSession } from '../auth.js';
 
 export const authRouter = Router();
 

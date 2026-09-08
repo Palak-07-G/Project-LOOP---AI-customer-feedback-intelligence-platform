@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { DashboardData, FeedbackItem } from '../types';
-import { api } from '../lib/api';
-import { KPISection } from '../components/dashboard/KPISection';
-import { VolumeChart } from '../components/dashboard/VolumeChart';
-import { SentimentDonutChart } from '../components/dashboard/SentimentDonutChart';
-import { TopThemesBarChart } from '../components/dashboard/TopThemesBarChart';
-import { DashboardFilters } from '../components/dashboard/DashboardFilters';
-import { Card, CardHeader } from '../components/ui/Card';
-import { SentimentBadge, StatusBadge, ChannelBadge } from '../components/ui/Badge';
-import { CardSkeleton, TableSkeleton } from '../components/ui/Skeleton';
-import { FeedbackDetailDrawer } from '../components/feedback/FeedbackDetailDrawer';
+import { DashboardData, FeedbackItem } from '../types.js';
+import { api } from '../lib/api.js';
+import { KPISection } from '../components/dashboard/KPISection.js';
+import { VolumeChart } from '../components/dashboard/VolumeChart.js';
+import { SentimentDonutChart } from '../components/dashboard/SentimentDonutChart.js';
+import { TopThemesBarChart } from '../components/dashboard/TopThemesBarChart.js';
+import { DashboardFilters } from '../components/dashboard/DashboardFilters.js';
+import { Card, CardHeader } from '../components/ui/Card.js';
+import { SentimentBadge, StatusBadge, ChannelBadge } from '../components/ui/Badge.js';
+import { CardSkeleton, TableSkeleton } from '../components/ui/Skeleton.js';
+import { FeedbackDetailDrawer } from '../components/feedback/FeedbackDetailDrawer.js';
 import { MessageSquare, ArrowRight, Sparkles, BookOpen } from 'lucide-react';
-import { Button } from '../components/ui/Button';
+import { Button } from '../components/ui/Button.js';
 
 interface DashboardPageProps {
   onNavigateToInbox: (themeId?: string) => void;

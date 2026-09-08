@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { ThemeTrend, Theme, FeedbackItem } from '../types';
-import { api } from '../lib/api';
-import { useAuth } from '../context/AuthContext';
-import { Card, CardHeader } from '../components/ui/Card';
-import { Button } from '../components/ui/Button';
-import { Modal } from '../components/ui/Modal';
-import { CardSkeleton } from '../components/ui/Skeleton';
-import { FeedbackDetailDrawer } from '../components/feedback/FeedbackDetailDrawer';
+import { ThemeTrend, Theme, FeedbackItem } from '../types.js';
+import { api } from '../lib/api.js';
+import { useAuth } from '../context/AuthContext.js';
+import { Card, CardHeader } from '../components/ui/Card.js';
+import { Button } from '../components/ui/Button.js';
+import { Modal } from '../components/ui/Modal.js';
+import { CardSkeleton } from '../components/ui/Skeleton.js';
+import { FeedbackDetailDrawer } from '../components/feedback/FeedbackDetailDrawer.js';
 import {
   TrendingUp,
   TrendingDown,

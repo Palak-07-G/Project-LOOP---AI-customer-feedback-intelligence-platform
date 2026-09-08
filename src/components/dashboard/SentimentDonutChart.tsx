@@ -1,6 +1,6 @@
 import React from 'react';
-import { SentimentBreakdown } from '../../types';
-import { Card, CardHeader } from '../ui/Card';
+import { SentimentBreakdown } from '../../types.js';
+import { Card, CardHeader } from '../ui/Card.js';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
 
 export const SentimentDonutChart: React.FC<{ data: SentimentBreakdown }> = ({ data }) => {

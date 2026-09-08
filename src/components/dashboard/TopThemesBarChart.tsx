@@ -1,6 +1,6 @@
 import React from 'react';
-import { TopThemeItem } from '../../types';
-import { Card, CardHeader } from '../ui/Card';
+import { TopThemeItem } from '../../types.js';
+import { Card, CardHeader } from '../ui/Card.js';
 import {
   BarChart,
   Bar,

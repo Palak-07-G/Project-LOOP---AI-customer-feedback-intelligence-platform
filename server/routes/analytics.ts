@@ -1,6 +1,6 @@
 import { Router, Request, Response } from 'express';
-import { requireAuth } from '../auth';
-import { getDashboardData, getThemesTrendData } from '../analytics';
+import { requireAuth } from '../auth.js';
+import { getDashboardData, getThemesTrendData } from '../analytics.js';
 
 export const analyticsRouter = Router();
 

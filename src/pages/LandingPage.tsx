@@ -15,8 +15,8 @@ import {
   Layers,
   BookOpen,
 } from 'lucide-react';
-import { Button } from '../components/ui/Button';
-import { useAuth } from '../context/AuthContext';
+import { Button } from '../components/ui/Button.js';
+import { useAuth } from '../context/AuthContext.js';
 
 interface LandingPageProps {
   onGoToLogin: () => void;

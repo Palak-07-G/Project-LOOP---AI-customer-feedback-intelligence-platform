@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { FeedbackItem, FeedbackStatus } from '../../types';
-import { SentimentBadge, StatusBadge, ChannelBadge } from '../ui/Badge';
-import { Button } from '../ui/Button';
-import { api } from '../../lib/api';
-import { useAuth } from '../../context/AuthContext';
+import { FeedbackItem, FeedbackStatus } from '../../types.js';
+import { SentimentBadge, StatusBadge, ChannelBadge } from '../ui/Badge.js';
+import { Button } from '../ui/Button.js';
+import { api } from '../../lib/api.js';
+import { useAuth } from '../../context/AuthContext.js';
 import { X, Sparkles, RefreshCw, Trash2, Calendar, User, Tag, Layers, CheckCircle2 } from 'lucide-react';
 
 interface FeedbackDetailDrawerProps {

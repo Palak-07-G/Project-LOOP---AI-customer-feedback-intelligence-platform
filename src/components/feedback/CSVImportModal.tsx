@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import Papa from 'papaparse';
-import { Modal } from '../ui/Modal';
-import { Button } from '../ui/Button';
-import { api } from '../../lib/api';
+import { Modal } from '../ui/Modal.js';
+import { Button } from '../ui/Button.js';
+import { api } from '../../lib/api.js';
 import { Upload, FileText, CheckCircle2, AlertTriangle, Download } from 'lucide-react';
 
 interface CSVImportModalProps {

@@ -14,8 +14,8 @@ import {
   ShieldCheck,
   Zap,
 } from 'lucide-react';
-import { useAuth } from '../../context/AuthContext';
-import { RoleBadge } from '../ui/Badge';
+import { useAuth } from '../../context/AuthContext.js';
+import { RoleBadge } from '../ui/Badge.js';
 
 interface SidebarProps {
   currentTab: string;

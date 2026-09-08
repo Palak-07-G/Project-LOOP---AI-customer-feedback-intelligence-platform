@@ -1,8 +1,8 @@
 import { Router, Request, Response } from 'express';
 import { z } from 'zod';
-import { client } from '../db';
-import { requireAuth } from '../auth';
-import { classifyFeedback, generateSimpleEmbedding } from '../ai';
+import { client } from '../db.js';
+import { requireAuth } from '../auth.js';
+import { classifyFeedback, generateSimpleEmbedding } from '../ai.js';
 
 export const feedbackRouter = Router();
 
