@@ -1,6 +1,6 @@
 import bcrypt from 'bcryptjs';
-import { client } from './db';
-import { generateSimpleEmbedding } from './ai';
+import { client } from './db.js';
+import { generateSimpleEmbedding } from './ai.js';
 
 export async function seedDemoData() {
   const passwordHash = await bcrypt.hash('LoopDemo@2026!', 10);
@@ -84,18 +84,7 @@ export async function seedDemoData() {
   });
 
   // 5. Generate 130+ Realistic Feedback Items for Acme
-  const feedbackSeedList: Array<{
-    content: string;
-    channel: string;
-    sourceRef: string;
-    customerLabel: string;
-    sentiment: 'POS' | 'NEU' | 'NEG';
-    sentimentScore: number;
-    featureArea: string;
-    status: 'NEW' | 'REVIEWED' | 'ACTIONED';
-    daysAgo: number;
-    themeIds: string[];
-  }> = [
+  const feedbackSeedList = [
     // Onboarding & Setup
     {
       content: "Inviting team members during workspace setup is confusing. Several invitations ended up in spam and there was no resend button.",
@@ -520,10 +509,10 @@ export async function seedDemoData() {
       prefix: 'TICKET-',
       theme: 'thm-onboarding',
       quotes: [
-        { text: "Can we customize the welcome email template sent to new workspace members? Our company branding is missing.", score: -0.3, sent: 'NEU' as const, area: 'Onboarding' },
-        { text: "Invited 5 users today, all got activated smoothly within minutes. Great improvement over last month.", score: 0.8, sent: 'POS' as const, area: 'Onboarding' },
-        { text: "New users are getting stuck on the project creation step because the mandatory workspace dropdown is hidden.", score: -0.72, sent: 'NEG' as const, area: 'Onboarding' },
-        { text: "Onboarding tour modal keeps re-appearing on every page refresh even after clicking 'Don't show again'.", score: -0.68, sent: 'NEG' as const, area: 'Onboarding' },
+        { text: "Can we customize the welcome email template sent to new workspace members? Our company branding is missing.", score: -0.3, sent: 'NEU', area: 'Onboarding' },
+        { text: "Invited 5 users today, all got activated smoothly within minutes. Great improvement over last month.", score: 0.8, sent: 'POS', area: 'Onboarding' },
+        { text: "New users are getting stuck on the project creation step because the mandatory workspace dropdown is hidden.", score: -0.72, sent: 'NEG', area: 'Onboarding' },
+        { text: "Onboarding tour modal keeps re-appearing on every page refresh even after clicking 'Don't show again'.", score: -0.68, sent: 'NEG', area: 'Onboarding' },
       ]
     },
     {
@@ -531,10 +520,10 @@ export async function seedDemoData() {
       prefix: 'APPSTORE-',
       theme: 'thm-mobile',
       quotes: [
-        { text: "Dark mode on iOS looks crisp! Battery drain is also significantly lower after the v4.3 update.", score: 0.88, sent: 'POS' as const, area: 'Mobile' },
-        { text: "Biometric FaceID login occasionally hangs on splash screen requiring force close.", score: -0.61, sent: 'NEG' as const, area: 'Mobile' },
-        { text: "Love being able to triage customer feedback during my morning train commute. Smooth UI.", score: 0.84, sent: 'POS' as const, area: 'Mobile' },
-        { text: "Offline mode doesn't cache recent feedback records. If internet drops, app shows empty screen.", score: -0.55, sent: 'NEG' as const, area: 'Mobile' },
+        { text: "Dark mode on iOS looks crisp! Battery drain is also significantly lower after the v4.3 update.", score: 0.88, sent: 'POS', area: 'Mobile' },
+        { text: "Biometric FaceID login occasionally hangs on splash screen requiring force close.", score: -0.61, sent: 'NEG', area: 'Mobile' },
+        { text: "Love being able to triage customer feedback during my morning train commute. Smooth UI.", score: 0.84, sent: 'POS', area: 'Mobile' },
+        { text: "Offline mode doesn't cache recent feedback records. If internet drops, app shows empty screen.", score: -0.55, sent: 'NEG', area: 'Mobile' },
       ]
     },
     {
@@ -542,10 +531,10 @@ export async function seedDemoData() {
       prefix: 'NPS-2026-',
       theme: 'thm-performance',
       quotes: [
-        { text: "Speed of Ask LOOP semantic search is astonishing. Generates cited answers in under 2 seconds.", score: 0.94, sent: 'POS' as const, area: 'Performance' },
-        { text: "Initial dashboard load takes longer when there are over 10 active theme filters selected.", score: -0.42, sent: 'NEG' as const, area: 'Performance' },
-        { text: "CSV import with 1,000 rows processed in just 4 seconds without freezing the UI. Excellent.", score: 0.89, sent: 'POS' as const, area: 'Performance' },
-        { text: "Filter dropdown lags when scrolling quickly through 50+ channel options.", score: -0.38, sent: 'NEU' as const, area: 'Performance' },
+        { text: "Speed of Ask LOOP semantic search is astonishing. Generates cited answers in under 2 seconds.", score: 0.94, sent: 'POS', area: 'Performance' },
+        { text: "Initial dashboard load takes longer when there are over 10 active theme filters selected.", score: -0.42, sent: 'NEG', area: 'Performance' },
+        { text: "CSV import with 1,000 rows processed in just 4 seconds without freezing the UI. Excellent.", score: 0.89, sent: 'POS', area: 'Performance' },
+        { text: "Filter dropdown lags when scrolling quickly through 50+ channel options.", score: -0.38, sent: 'NEU', area: 'Performance' },
       ]
     },
     {
@@ -553,10 +542,10 @@ export async function seedDemoData() {
       prefix: 'CSAT-',
       theme: 'thm-billing',
       quotes: [
-        { text: "Self-serve credit card update failed with generic card error. Bank said no decline was sent.", score: -0.74, sent: 'NEG' as const, area: 'Billing' },
-        { text: "Appreciated the 14-day renewal notice email before our annual enterprise contract renewed.", score: 0.76, sent: 'POS' as const, area: 'Billing' },
-        { text: "Why is there no option to pay via ACH direct debit for invoices over $10,000?", score: -0.45, sent: 'NEU' as const, area: 'Billing' },
-        { text: "Billing history dashboard clearly displays itemized seat charges and discounts.", score: 0.82, sent: 'POS' as const, area: 'Billing' },
+        { text: "Self-serve credit card update failed with generic card error. Bank said no decline was sent.", score: -0.74, sent: 'NEG', area: 'Billing' },
+        { text: "Appreciated the 14-day renewal notice email before our annual enterprise contract renewed.", score: 0.76, sent: 'POS', area: 'Billing' },
+        { text: "Why is there no option to pay via ACH direct debit for invoices over $10,000?", score: -0.45, sent: 'NEU', area: 'Billing' },
+        { text: "Billing history dashboard clearly displays itemized seat charges and discounts.", score: 0.82, sent: 'POS', area: 'Billing' },
       ]
     },
     {
@@ -564,10 +553,10 @@ export async function seedDemoData() {
       prefix: 'SALES-GONG-',
       theme: 'thm-sso',
       quotes: [
-        { text: "Enterprise prospect requires Microsoft Entra ID (Azure AD) SCIM auto-provisioning for 500 seats.", score: 0.1, sent: 'NEU' as const, area: 'Authentication' },
-        { text: "Security review approved immediately thanks to SOC2 compliance and strict workspace data isolation.", score: 0.95, sent: 'POS' as const, area: 'Authentication' },
-        { text: "Lost a prospect because we didn't support IP allowlisting for enterprise login portals.", score: -0.65, sent: 'NEG' as const, area: 'Authentication' },
-        { text: "Customer loved that Viewer roles have zero write permissions, making compliance audits simple.", score: 0.9, sent: 'POS' as const, area: 'Authentication' },
+        { text: "Enterprise prospect requires Microsoft Entra ID (Azure AD) SCIM auto-provisioning for 500 seats.", score: 0.1, sent: 'NEU', area: 'Authentication' },
+        { text: "Security review approved immediately thanks to SOC2 compliance and strict workspace data isolation.", score: 0.95, sent: 'POS', area: 'Authentication' },
+        { text: "Lost a prospect because we didn't support IP allowlisting for enterprise login portals.", score: -0.65, sent: 'NEG', area: 'Authentication' },
+        { text: "Customer loved that Viewer roles have zero write permissions, making compliance audits simple.", score: 0.9, sent: 'POS', area: 'Authentication' },
       ]
     },
     {
@@ -575,10 +564,10 @@ export async function seedDemoData() {
       prefix: 'COMMUNITY-',
       theme: 'thm-integrations',
       quotes: [
-        { text: "Built a custom Discord bot using LOOP's webhook dispatch. Real-time feedback alerts work like magic!", score: 0.92, sent: 'POS' as const, area: 'Integrations' },
-        { text: "Webhook payload is missing the customerLabel field when triggered on status change.", score: -0.48, sent: 'NEG' as const, area: 'Integrations' },
-        { text: "GitHub issue auto-linking when tagging feedback with 'Bug' saved our dev team hours.", score: 0.87, sent: 'POS' as const, area: 'Integrations' },
-        { text: "Please add Microsoft Teams bot integration alongside the Slack app.", score: 0.2, sent: 'NEU' as const, area: 'Integrations' },
+        { text: "Built a custom Discord bot using LOOP's webhook dispatch. Real-time feedback alerts work like magic!", score: 0.92, sent: 'POS', area: 'Integrations' },
+        { text: "Webhook payload is missing the customerLabel field when triggered on status change.", score: -0.48, sent: 'NEG', area: 'Integrations' },
+        { text: "GitHub issue auto-linking when tagging feedback with 'Bug' saved our dev team hours.", score: 0.87, sent: 'POS', area: 'Integrations' },
+        { text: "Please add Microsoft Teams bot integration alongside the Slack app.", score: 0.2, sent: 'NEU', area: 'Integrations' },
       ]
     },
     {
@@ -586,10 +575,10 @@ export async function seedDemoData() {
       prefix: 'TICKET-',
       theme: 'thm-export',
       quotes: [
-        { text: "Executive VoC PDF summary with trend spikes was a massive hit in our board meeting yesterday.", score: 0.96, sent: 'POS' as const, area: 'Reporting' },
-        { text: "Need the ability to filter exported CSV by customerLabel prefix (e.g. only Enterprise accounts).", score: -0.15, sent: 'NEU' as const, area: 'Reporting' },
-        { text: "Chart colors in PDF export are washed out when printed in monochrome grayscale.", score: -0.4, sent: 'NEG' as const, area: 'Reporting' },
-        { text: "Scheduled weekly automated reports are delivering on time every Monday morning.", score: 0.85, sent: 'POS' as const, area: 'Reporting' },
+        { text: "Executive VoC PDF summary with trend spikes was a massive hit in our board meeting yesterday.", score: 0.96, sent: 'POS', area: 'Reporting' },
+        { text: "Need the ability to filter exported CSV by customerLabel prefix (e.g. only Enterprise accounts).", score: -0.15, sent: 'NEU', area: 'Reporting' },
+        { text: "Chart colors in PDF export are washed out when printed in monochrome grayscale.", score: -0.4, sent: 'NEG', area: 'Reporting' },
+        { text: "Scheduled weekly automated reports are delivering on time every Monday morning.", score: 0.85, sent: 'POS', area: 'Reporting' },
       ]
     },
     {
@@ -597,17 +586,17 @@ export async function seedDemoData() {
       prefix: 'CSAT-',
       theme: 'thm-search',
       quotes: [
-        { text: "Natural language query in Ask LOOP accurately found all feedback mentioning 'pricing friction'.", score: 0.93, sent: 'POS' as const, area: 'Search' },
-        { text: "Search box resets every time I click back from a feedback detail drawer.", score: -0.52, sent: 'NEG' as const, area: 'Search' },
-        { text: "Regex search support would be great for finding technical error codes in crash logs.", score: 0.05, sent: 'NEU' as const, area: 'Search' },
-        { text: "Theme auto-filter when clicking a badge in search results makes navigation super smooth.", score: 0.88, sent: 'POS' as const, area: 'Search' },
+        { text: "Natural language query in Ask LOOP accurately found all feedback mentioning 'pricing friction'.", score: 0.93, sent: 'POS', area: 'Search' },
+        { text: "Search box resets every time I click back from a feedback detail drawer.", score: -0.52, sent: 'NEG', area: 'Search' },
+        { text: "Regex search support would be great for finding technical error codes in crash logs.", score: 0.05, sent: 'NEU', area: 'Search' },
+        { text: "Theme auto-filter when clicking a badge in search results makes navigation super smooth.", score: 0.88, sent: 'POS', area: 'Search' },
       ]
     },
   ];
 
   // Expand into a rich dataset of 130 items with realistic dates over the last 90 days
   let itemIndex = 1;
-  const statuses: Array<'NEW' | 'REVIEWED' | 'ACTIONED'> = ['NEW', 'REVIEWED', 'ACTIONED'];
+  const statuses = ['NEW', 'REVIEWED', 'ACTIONED'];
 
   for (const item of feedbackSeedList) {
     const feedbackId = `fb-seed-${itemIndex++}`;
