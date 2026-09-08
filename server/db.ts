@@ -2,6 +2,7 @@ import { createClient, Client } from '@libsql/client';
 import fs from 'fs';
 import path from 'path';
 import bcrypt from 'bcryptjs';
+import { seedDemoData } from './seedData.js';
 
 // Ensure data directory exists
 const DATA_DIR = path.join(process.cwd(), 'data');
@@ -140,5 +141,3 @@ export async function initDatabase() {
     console.log('[DB] Seed completed successfully!');
   }
 }
-
-import { seedDemoData } from './seedData';
