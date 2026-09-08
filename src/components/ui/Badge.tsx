@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sentiment, FeedbackStatus, UserRole } from '../../types.js';
+import { Sentiment, FeedbackStatus, UserRole } from '../../types';
 
 export const SentimentBadge: React.FC<{ sentiment: Sentiment; score?: number; className?: string }> = ({
   sentiment,

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { MemberItem, UserRole } from '../types.js';
-import { api } from '../lib/api.js';
-import { useAuth } from '../context/AuthContext.js';
-import { Card, CardHeader } from '../components/ui/Card.js';
-import { Button } from '../components/ui/Button.js';
-import { Modal } from '../components/ui/Modal.js';
-import { RoleBadge } from '../components/ui/Badge.js';
-import { TableSkeleton } from '../components/ui/Skeleton.js';
+import { MemberItem, UserRole } from '../types';
+import { api } from '../lib/api';
+import { useAuth } from '../context/AuthContext';
+import { Card, CardHeader } from '../components/ui/Card';
+import { Button } from '../components/ui/Button';
+import { Modal } from '../components/ui/Modal';
+import { RoleBadge } from '../components/ui/Badge';
+import { TableSkeleton } from '../components/ui/Skeleton';
 import { Users, UserPlus, ShieldCheck, Trash2, Mail, CheckCircle2 } from 'lucide-react';
 
 export const MembersPage: React.FC = () => {

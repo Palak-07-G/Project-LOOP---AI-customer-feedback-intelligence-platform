@@ -1,6 +1,6 @@
 import React from 'react';
-import { VolumePoint } from '../../types.js';
-import { Card, CardHeader } from '../ui/Card.js';
+import { VolumePoint } from '../../types';
+import { Card, CardHeader } from '../ui/Card';
 import {
   AreaChart,
   Area,

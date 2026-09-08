@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Modal } from '../ui/Modal.js';
-import { Button } from '../ui/Button.js';
-import { api } from '../../lib/api.js';
+import { Modal } from '../ui/Modal';
+import { Button } from '../ui/Button';
+import { api } from '../../lib/api';
 import { LifeBuoy, Star, HeartHandshake, PhoneCall, CheckCircle2, Sparkles } from 'lucide-react';
 
 interface SimulateChannelModalProps {

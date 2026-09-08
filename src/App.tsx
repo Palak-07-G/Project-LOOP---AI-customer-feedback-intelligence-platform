@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
-import { AuthProvider, useAuth } from './context/AuthContext.js';
-import { Sidebar } from './components/layout/Sidebar.js';
-import { Header } from './components/layout/Header.js';
-import { LandingPage } from './pages/LandingPage.js';
-import { LoginPage } from './pages/LoginPage.js';
-import { SignupPage } from './pages/SignupPage.js';
-import { DashboardPage } from './pages/DashboardPage.js';
-import { InboxPage } from './pages/InboxPage.js';
-import { TrendsPage } from './pages/TrendsPage.js';
-import { AskLoopPage } from './pages/AskLoopPage.js';
-import { ReportsPage } from './pages/ReportsPage.js';
-import { MembersPage } from './pages/MembersPage.js';
-import { SettingsPage } from './pages/SettingsPage.js';
-import { AddFeedbackModal } from './components/feedback/AddFeedbackModal.js';
-import { CSVImportModal } from './components/feedback/CSVImportModal.js';
-import { SimulateChannelModal } from './components/feedback/SimulateChannelModal.js';
+import { AuthProvider, useAuth } from './context/AuthContext';
+import { Sidebar } from './components/layout/Sidebar';
+import { Header } from './components/layout/Header';
+import { LandingPage } from './pages/LandingPage';
+import { LoginPage } from './pages/LoginPage';
+import { SignupPage } from './pages/SignupPage';
+import { DashboardPage } from './pages/DashboardPage';
+import { InboxPage } from './pages/InboxPage';
+import { TrendsPage } from './pages/TrendsPage';
+import { AskLoopPage } from './pages/AskLoopPage';
+import { ReportsPage } from './pages/ReportsPage';
+import { MembersPage } from './pages/MembersPage';
+import { SettingsPage } from './pages/SettingsPage';
+import { AddFeedbackModal } from './components/feedback/AddFeedbackModal';
+import { CSVImportModal } from './components/feedback/CSVImportModal';
+import { SimulateChannelModal } from './components/feedback/SimulateChannelModal';
 import { Loader2 } from 'lucide-react';
 
 const AppContent: React.FC = () => {

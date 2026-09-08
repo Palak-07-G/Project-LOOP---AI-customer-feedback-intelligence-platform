@@ -1,8 +1,8 @@
 import React from 'react';
 import { Menu, Plus, RefreshCw, Sparkles, Database, Download } from 'lucide-react';
-import { Button } from '../ui/Button.js';
-import { RoleBadge } from '../ui/Badge.js';
-import { useAuth } from '../../context/AuthContext.js';
+import { Button } from '../ui/Button';
+import { RoleBadge } from '../ui/Badge';
+import { useAuth } from '../../context/AuthContext';
 
 interface HeaderProps {
   title: string;

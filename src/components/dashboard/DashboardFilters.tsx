@@ -1,6 +1,6 @@
 import React from 'react';
 import { Search, Filter, RotateCcw } from 'lucide-react';
-import { Button } from '../ui/Button.js';
+import { Button } from '../ui/Button';
 
 interface DashboardFiltersProps {
   dateRange: string;

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { AskLoopResult, FeedbackItem, EvidenceSource } from '../types.js';
-import { api } from '../lib/api.js';
-import { Card, CardHeader } from '../components/ui/Card.js';
-import { Button } from '../components/ui/Button.js';
-import { SentimentBadge, ChannelBadge } from '../components/ui/Badge.js';
-import { FeedbackDetailDrawer } from '../components/feedback/FeedbackDetailDrawer.js';
+import { AskLoopResult, FeedbackItem, EvidenceSource } from '../types';
+import { api } from '../lib/api';
+import { Card, CardHeader } from '../components/ui/Card';
+import { Button } from '../components/ui/Button';
+import { SentimentBadge, ChannelBadge } from '../components/ui/Badge';
+import { FeedbackDetailDrawer } from '../components/feedback/FeedbackDetailDrawer';
 import {
   Sparkles,
   Send,

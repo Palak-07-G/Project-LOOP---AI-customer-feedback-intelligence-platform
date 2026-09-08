@@ -1,6 +1,6 @@
 import React from 'react';
-import { KPIStats } from '../../types.js';
-import { Card } from '../ui/Card.js';
+import { KPIStats } from '../../types';
+import { Card } from '../ui/Card';
 import { MessageSquare, AlertCircle, Sparkles, TrendingUp, TrendingDown, Clock, Layers } from 'lucide-react';
 
 export const KPISection: React.FC<{ kpi: KPIStats }> = ({ kpi }) => {

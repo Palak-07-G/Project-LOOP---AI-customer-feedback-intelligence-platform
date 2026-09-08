@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { useAuth } from '../context/AuthContext.js';
-import { Card, CardHeader } from '../components/ui/Card.js';
-import { Button } from '../components/ui/Button.js';
-import { RoleBadge } from '../components/ui/Badge.js';
+import { useAuth } from '../context/AuthContext';
+import { Card, CardHeader } from '../components/ui/Card';
+import { Button } from '../components/ui/Button';
+import { RoleBadge } from '../components/ui/Badge';
 import {
   Building2,
   ShieldCheck,

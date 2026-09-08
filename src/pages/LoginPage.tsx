@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useAuth } from '../context/AuthContext.js';
-import { Button } from '../components/ui/Button.js';
+import { useAuth } from '../context/AuthContext';
+import { Button } from '../components/ui/Button';
 import { Zap, ArrowLeft, Lock, Mail } from 'lucide-react';
 
 interface LoginPageProps {
