@@ -113,9 +113,7 @@ The application can use:
 3. A deterministic fallback classification engine
 
 This fallback allows the application to continue demonstrating its core intelligence features even when an external AI API is unavailable.
-
 ---
-
 # 📊 Analytics Dashboard
 
 The dashboard provides an overview of customer feedback and product sentiment.
